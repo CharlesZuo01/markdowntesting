@@ -1,6 +1,5 @@
 # AWS-Networking-Test 
 
-This builds
 ## Table of Contents 
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
