@@ -1,7 +1,6 @@
 # AWS-Networking-Test 
 
-Brief description or overview of the project. 
-
+This builds
 ## Table of Contents 
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
@@ -10,13 +9,14 @@ Brief description or overview of the project.
 - [Testing](#Testing)
 
 # Introduction
+This creates an OpenVPN instance and a Ubuntu instance in us-east-1 and the AWS network infrastructure to support it. Up to two devices can establish a client VPN connection to the OpenVPN instance and ping the Ubuntu instance.
 
 # Prerequisites
 
 # AWS-Configuration
 #### **network.tf**
 
-network.tf creates a VPC 192.168.1.0/24 and two subnets in us-east-1a and us-east-1b with CIDRs 192.168.1.0/25 and 192.168.1.128/25 respectively. These are the subnets that the OpenVPN and Ubuntu instances are hosted in.
+network.tf creates a VPC 10.24.24.0/24 and two subnets in us-east-1a and us-east-1b with CIDRs 10.24.24.0/25 and 10.24.24.128/25 respectively. These are the subnets that the OpenVPN and Ubuntu instances are hosted in.
 
 network.tf also creates an AWS Internet Gateway that provides internet access for the instances and configures the appropriate network routing tables ands to allow connectivity between the instances.
 
