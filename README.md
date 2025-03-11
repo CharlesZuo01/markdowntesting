@@ -7,7 +7,7 @@ Brief description or overview of the project.
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [AWS Configuration](#configuration)
-- [OpenVPN Configuration](#OpenVPN Configuration)
+- [OpenVPN Configuration](#OpenVPN configuration)
 
 # Introduction
 
