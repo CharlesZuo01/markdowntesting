@@ -5,6 +5,7 @@
 - [Prerequisites](#prerequisites)
 - [AWS-Configuration](#AWS-configuration)
 - [OpenVPN-Configuration](#OpenVPN-Configuration)
+- [Usage](#Usage)
 - [Testing](#Testing)
 
 # Introduction
@@ -12,6 +13,26 @@ This creates an OpenVPN instance and a Ubuntu instance in us-east-1 and the AWS 
 
 # Prerequisites
 [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#getting-started-install-instructions)
+
+#### Configuring AWS CLI
+
+In the AWS console create a new AWS user and assign it to a group that has the permissions that you need. In this case, we are going to give it full administrator access
+
+![0](https://github.com/user-attachments/assets/879e5448-8dc8-416a-8b40-287f2f4f5e78)
+
+![0](https://github.com/user-attachments/assets/4d3c0f36-2d46-4099-9202-e5079a25da68)
+
+After creating this user, select command CLI as the use case. We need this for terraform to work
+
+![0](https://github.com/user-attachments/assets/d068e674-a5e2-4a84-bbd4-a5472c65c616)
+
+Create an access key and copy paste your access key and secret access key 
+
+![0](https://github.com/user-attachments/assets/3740fb4f-9fc2-4227-8a07-8d16e7077077)
+
+In the CLI, run the AWS configure command and enter your access key and secret access key accordingly, along with the other inputs. In this example, we enter our keys and set our default region to us-east-1
+
+![Untitled](https://github.com/user-attachments/assets/911d3f76-3c90-4acb-ae61-e2975b72ec6d)
 
 [Terraform v5.33+](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
@@ -54,6 +75,8 @@ This creates an ubuntu instance that acts as our service. We will ping this inst
 
 This show the AWS infrastructure. A user connects to the OpenVPN through the instances. Traffic is routed through the IGW to the OpenVPN instance and traffic to AWS infrastructure is tunneled through the VPN
 # OpenVPN-Configuration
+
+# Usage
 
 # Testing
 
