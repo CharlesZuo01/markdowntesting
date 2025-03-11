@@ -1,7 +1,4 @@
-# markdowntesting
-
-
-# Project Title 
+# AWS-Networking-Test 
 
 Brief description or overview of the project. 
 
@@ -9,7 +6,8 @@ Brief description or overview of the project.
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Configuration](#configuration)
+- [AWS Configuration](#configuration)
+- [OpenVPN Configuration](#OpenVPN Configuration)
 
 # Introduction
 
@@ -23,4 +21,7 @@ Details about prerequisites...
 Details about the installation..
 
 
-# Configuration
+# AWS Configuration
+
+# OpenVPN Configuration
+
