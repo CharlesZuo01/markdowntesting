@@ -3,6 +3,7 @@
 ## Table of Contents 
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
+- [AWS-CLI](#AWS-CLI)
 - [AWS-Configuration](#AWS-configuration)
 - [OpenVPN-Configuration](#OpenVPN-Configuration)
 - [Usage](#Usage)
@@ -14,7 +15,12 @@ This creates an OpenVPN instance and a Ubuntu instance in us-east-1 and the AWS 
 # Prerequisites
 [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#getting-started-install-instructions)
 
-#### Configuring AWS CLI
+[Terraform v5.33+](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+
+[OpenVPN Client](https://openvpn.net/client/)
+
+
+# AWS-CLI
 
 In the AWS console create a new AWS user and assign it to a group that has the permissions that you need. In this case, we are going to give it full administrator access
 
@@ -33,10 +39,6 @@ Create an access key and copy paste your access key and secret access key
 In the CLI, run the AWS configure command and enter your access key and secret access key accordingly, along with the other inputs. In this example, we enter our keys and set our default region to us-east-1
 
 ![Untitled](https://github.com/user-attachments/assets/911d3f76-3c90-4acb-ae61-e2975b72ec6d)
-
-[Terraform v5.33+](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
-
-[OpenVPN Client](https://openvpn.net/client/)
 
 # AWS-Configuration
 
