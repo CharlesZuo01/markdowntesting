@@ -5,6 +5,7 @@
 - [Prerequisites](#prerequisites)
 - [AWS-CLI](#AWS-CLI)
 - [AWS-Configuration](#AWS-configuration)
+- [Diagram](#Diagram)
 - [OpenVPN-Configuration](#OpenVPN-Configuration)
 - [Usage](#Usage)
 - [Testing](#Testing)
@@ -75,9 +76,10 @@ This creates an ubuntu instance that acts as our service. We will ping this inst
 
 # Diagram
 
-<img width="725" alt="Screenshot 2025-03-06 at 9 39 21 PM" src="https://github.com/user-attachments/assets/ff7f7722-53a0-4306-be34-f29b3b4d4484" />
+This show the AWS infrastructure. A user connects to the OpenVPN through the instances. Traffic is routed through the IGW to the OpenVPN instance and traffic to AWS infrastructure is tunneled through the VPN. The 10.24.24.0/24 network route is installed in the user device local routing table, and all traffic to this CIDR is tunneled through the VPN. The Ubuntu server can be pinged through VPN
 
-This show the AWS infrastructure. A user connects to the OpenVPN through the instances. Traffic is routed through the IGW to the OpenVPN instance and traffic to AWS infrastructure is tunneled through the VPN
+![0](https://github.com/user-attachments/assets/eeb11e6b-904c-4e3b-9acc-2db7e5cc8dda)
+
 # OpenVPN-Configuration
 
 # Usage
