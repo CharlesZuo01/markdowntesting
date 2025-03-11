@@ -11,6 +11,11 @@
 This creates an OpenVPN instance and a Ubuntu instance in us-east-1 and the AWS network infrastructure to support it. Up to two devices can establish a client VPN connection to the OpenVPN instance and ping the Ubuntu instance.
 
 # Prerequisites
+[AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#getting-started-install-instructions)
+
+[Terraform v5.33+](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+
+[OpenVPN Client](https://openvpn.net/client/)
 
 # AWS-Configuration
 #### **network.tf**
