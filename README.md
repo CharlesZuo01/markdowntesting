@@ -108,14 +108,112 @@ access_vpn_url = "https://44.211.41.123:943/admin"
 PS F:\switchet\CharlesZuo01-AWS-Networking-Test> ssh -i C:\Users\User\Downloads\openvpn.pem root@44.211.41.123      
 ```
 
-Finish the wizard setup. All default options can be entered. Go to the OpenVPN web console https://44.211.41.123:943/admin in your browser
+Finish the wizard setup. All default options can be entered. Go to the OpenVPN web console https://44.211.41.123:943/admin in your browser. See example
+
+```
+Please enter 'yes' to indicate your agreement [no]: yes
+
+Once you provide a few initial configuration settings,
+OpenVPN Access Server can be configured by accessing
+its Admin Web UI using your Web browser.
+
+Will this be the primary Access Server node?
+(enter 'no' to configure as a backup or standby node)
+> Press ENTER for default [yes]:
+
+Please specify the network interface and IP address to be
+used by the Admin Web UI:
+(1) all interfaces: 0.0.0.0
+(2) eth0: 10.24.24.67
+Please enter the option number from the list above (1-2).
+> Press Enter for default [1]: 2
+
+Please specify the port number for the Admin Web UI.
+> Press ENTER for default [943]:
+
+Please specify the TCP port number for the OpenVPN Daemon
+> Press ENTER for default [443]:
+
+Should client traffic be routed by default through the VPN?
+> Press ENTER for default [no]:
+
+Should client DNS traffic be routed by default through the VPN?
+> Press ENTER for default [no]:
+
+Use local authentication via internal DB?
+> Press ENTER for default [yes]:
+
+Private subnets detected: ['10.24.24.0/24']
+
+Should private subnets be accessible to clients by default?
+> Press ENTER for EC2 default [yes]:
+
+To initially login to the Admin Web UI, you must use a
+username and password that successfully authenticates you
+with the host UNIX system (you can later modify the settings
+so that RADIUS or LDAP is used for authentication instead).
+
+You can login to the Admin Web UI as "openvpn" or specify
+a different user account to use for this purpose.
+
+Do you wish to login to the Admin UI as "openvpn"?
+> Press ENTER for default [yes]:
+
+> Please specify your Activation key (or leave blank to specify later):
+
+```
+After initialization, the openvpn instance will disconnect you. Log back in and set a password
+
+```
+PS C:\Users\User\Downloads> ssh -i .\openvpn.pem  openvpnas@54.152.152.154
+Welcome to OpenVPN Access Server Appliance 2.8.5
+
+  System information as of Tue Mar 11 06:00:30 UTC 2025
+
+  System load:  0.12              Users logged in:      0
+  Usage of /:   16.9% of 7.69GB   IP address for eth0:  10.24.24.67
+  Memory usage: 41%               IP address for as0t0: 172.27.224.1
+  Swap usage:   0%                IP address for as0t1: 172.27.232.1
+  Processes:    105
+
+30 packages can be updated.
+19 updates are security updates.
 
 
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
 
-# Usage
+openvpnas@ip-10-24-24-67:~$ sudo passwd openvpn
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+```
+
+Login to the web console using the creds openvpn/[password you created above]
+
+Go to user management and create a new user
+
+![Untitled](https://github.com/user-attachments/assets/0bbb6a11-612e-494a-bfbb-120d5f555b86)
+
+Open the OpenVPN client, create a new profile with the IP address of your instance, and connect to the instance using the new user you created.
+
+
+![Untitled](https://github.com/user-attachments/assets/7692716c-6bba-4e24-b3a6-aca500023507)
+
 
 # Testing
+Run `terraform output` to get the IP address of the ubuntu server
+Ping the ubuntu server when connected to VPN 
 
-Ping the ubuntu server
+```
+PS F:\switchet\CharlesZuo01-AWS-Networking-Test> terraform output
+access_vpn_url = "https://54.152.152.154:943/admin"
+service_private_ip = "10.24.24.221"
+PS F:\switchet\CharlesZuo01-AWS-Networking-Test> ping 10.24.24.221
 
-
+Pinging 10.24.24.221 with 32 bytes of data:
+Reply from 10.24.24.221: bytes=32 time=77ms TTL=126
+Reply from 10.24.24.221: bytes=32 time=77ms TTL=126
+Reply from 10.24.24.221: bytes=32 time=76ms TTL=126
+Reply from 10.24.24.221: bytes=32 time=76ms TTL=126
+```
