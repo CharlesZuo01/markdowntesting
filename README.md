@@ -39,6 +39,9 @@ In the CLI, run the AWS configure command and enter your access key and secret a
 [OpenVPN Client](https://openvpn.net/client/)
 
 # AWS-Configuration
+
+This section explains the terraform configuration. References to Terraform resources can be found [here](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc). For terraform state, we are using a local tfstate file. More information about this later in the USAGE section
+
 #### **network.tf**
 
 network.tf creates a VPC 10.24.24.0/24 and two subnets in us-east-1a and us-east-1b with CIDRs 10.24.24.0/25 and 10.24.24.128/25 respectively. These are the subnets that the OpenVPN and Ubuntu instances are hosted in.
@@ -53,8 +56,7 @@ This outputs the public IP address of the OpenVPN instance. AWS auto assigns a p
 
 ####  **providers.tf**
 
-basic provider set up. See https://registry.terraform.io/providers/hashicorp/aws/latest/docs for more information
-
+This sets up our AWS provider configuration. See [here](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) for more information on provider and backend set up
 
 ####  **security.groups.tf**
 
@@ -63,7 +65,7 @@ Creates open wide open security groups to allow full access between services. Th
 
 ####  **vpn-ec2.tf**
 
-This creates the OpenVPN instance and references an SSH key that is not included in this repo. Please see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair for more information but managing aws keys with terraform still has much to be desired 
+This creates the OpenVPN instance and references an the SSH key that was manually created. Please see this [link](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/key_pair) for more information on managing AWS key pairs with terraform, but the gist of it is that it is easier to reference an existing key pair with Terraform than it is to create one and then manage it.
 
 ####  **service-ec2.tf**
 
