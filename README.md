@@ -5,23 +5,18 @@ Brief description or overview of the project.
 ## Table of Contents 
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [AWS Configuration](#configuration)
-- [OpenVPN Configuration](#OpenVPN configuration)
+- [AWS-Configuration](#AWS-configuration)
+- [OpenVPN-Configuration](#OpenVPN-Configuration)
+- [Testing](#Testing)
 
 # Introduction
 
-
 # Prerequisites
 
-Details about prerequisites...
+# AWS-Configuration
 
-# Installation 
+# OpenVPN-Configuration
 
-Details about the installation..
+# Testing
 
-
-# AWS Configuration
-
-# OpenVPN Configuration
 
