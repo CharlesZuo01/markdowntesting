@@ -45,6 +45,18 @@ In the CLI, run the AWS configure command and enter your access key and secret a
 
 This section explains the terraform configuration. References to Terraform resources can be found [here](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/vpc). For terraform state, we are using a local tfstate file. More information about this later in the USAGE section
 
+
+#### Creating your key pair
+
+We are going to manually create a key pair in the AWS console because this is more efficient than creating a key pair with your local device and then uploading this key pair into AWS through terraform. Go to EC2 -> Key Pairs and click Create key pair
+
+![Untitled](https://github.com/user-attachments/assets/05467e9b-2ccf-4737-8583-d9f57432d448)
+
+Enter a name for your key pair and save the format as pem. The name of this key pair will be referened in the vpn-ec2.tf configuration file.
+
+![Untitled](https://github.com/user-attachments/assets/c0091169-20f7-451f-b3e2-123aa3b36d49)
+
+
 #### **network.tf**
 
 network.tf creates a VPC 10.24.24.0/24 and two subnets in us-east-1a and us-east-1b with CIDRs 10.24.24.0/25 and 10.24.24.128/25 respectively. These are the subnets that the OpenVPN and Ubuntu instances are hosted in.
@@ -54,8 +66,7 @@ network.tf also creates an AWS Internet Gateway that provides internet access fo
 
 ####  **outputs.tf**
 
-This outputs the public IP address of the OpenVPN instance. AWS auto assigns a public IP when you use `associate_public_ip_address = true` in terraform. This output allows us to grab the public IP which will be used later for OpenVPN configuration
-
+This outputs the URL for the openvpn web admin login. This URL includes the OpenVPN instance public IP address which we will use to SSH to the instance using the SSH key we created earlier. This outputs.tf file also outputs the private IP address of the Ubuntu server, which we will ping to verify our connectivity to internal resources.
 
 ####  **providers.tf**
 
@@ -89,10 +100,22 @@ This show the AWS infrastructure. A user connects to the OpenVPN through the ins
 
 # OpenVPN-Configuration
 
+After your OpenVPN instance is built, run `terraform output` to get the public IP address of your VPN instance. Using the key pair created earlier, SSH to the instance
+
+```
+PS F:\switchet\CharlesZuo01-AWS-Networking-Test> terraform output
+access_vpn_url = "https://44.211.41.123:943/admin"
+PS F:\switchet\CharlesZuo01-AWS-Networking-Test> ssh -i C:\Users\User\Downloads\openvpn.pem root@44.211.41.123      
+```
+
+Finish the wizard setup. All default options can be entered. Go to the OpenVPN web console https://44.211.41.123:943/admin in your browser
+
 
 
 # Usage
 
 # Testing
+
+Ping the ubuntu server
 
 
