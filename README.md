@@ -74,6 +74,13 @@ This creates the OpenVPN instance and references an the SSH key that was manuall
 
 This creates an ubuntu instance that acts as our service. We will ping this instance to verify connectivity to servers across the VPN
 
+Create the service by running the following commands
+```
+terraform plan
+terraform apply 
+```
+Then type yes when asked if you want to apply
+
 # Diagram
 
 This show the AWS infrastructure. A user connects to the OpenVPN through the instances. Traffic is routed through the IGW to the OpenVPN instance and traffic to AWS infrastructure is tunneled through the VPN. The 10.24.24.0/24 network route is installed in the user device local routing table, and all traffic to this CIDR is tunneled through the VPN. The Ubuntu server can be pinged through VPN
@@ -81,6 +88,8 @@ This show the AWS infrastructure. A user connects to the OpenVPN through the ins
 ![0](https://github.com/user-attachments/assets/eeb11e6b-904c-4e3b-9acc-2db7e5cc8dda)
 
 # OpenVPN-Configuration
+
+
 
 # Usage
 
