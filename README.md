@@ -191,7 +191,7 @@ passwd: password updated successfully
 
 Login to the web console using the creds openvpn/[password you created above]
 
-Go to user management and create a new user
+Go to user management and create a new user. Under Access Control section, add the CIDR that your service is hosted in
 
 ![Untitled](https://github.com/user-attachments/assets/0bbb6a11-612e-494a-bfbb-120d5f555b86)
 
